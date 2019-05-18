@@ -3,7 +3,7 @@ body{
   /* font-family: 'Pacifico', cursive; */
   background-color: #f5f5f5;
 }
-h2{
+h2,h3{
   font-family: 'Pacifico', cursive;
 }
 .navbar{
@@ -30,4 +30,15 @@ h2{
 }
 span{
   color: gray;
+}
+.card{
+  margin-top: 5%;
+  padding: 2%;
+}
+.home-btn{
+  width: 100%;
+  font-weight: bold;
+}
+.download{
+  margin-top: 3%;
 }
