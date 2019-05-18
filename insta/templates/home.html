@@ -1,13 +1,41 @@
-{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
 
+{% block styles %}
+  {% bootstrap_css %}
+   <!--Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Pacifico&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="{% static 'css/insta.css' %}">
+{% endblock %}
 {% block content %}
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-          <h2 class="text-center">Instagram</h2>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Instagram</title>
+  </head>
+  <body id="home">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <div>
+              <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" height="450">
+              
+            </div>
+            
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
-      <div class="col-md-2"></div>
-    </div>
-  </div>
+  </body>
+  </html>
+  {% include 'footer.html' %}
 {% endblock %}
