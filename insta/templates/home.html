@@ -1,5 +1,5 @@
-{% load bootstrap4 %}
-{% load static %}
+
+{% extends 'registration/base.html' %}
 
 {% block styles %}
   {% bootstrap_css %}
@@ -26,12 +26,38 @@
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <div>
-              <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" height="450">
-              
-            </div>
-            
+              <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" height="450">              
+            </div>            
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            {% if form.errors %}
+              <p> Some Information Might be Incorrect </p>
+            {% endif %}
+            <div class="card">
+      
+              <div class="panel-title">
+                <h3 class="text-center">Sign Up</h3>
+              </div>
+              <div class="card-body">      
+                <form  action="/accounts/register/" method="post">
+                  {% csrf_token %}
+                  {% bootstrap_form form %}
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                  </div>
+      
+                  <input type="hidden" name="next" value="{{next}}">
+                  <p class="text-center">By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
+      
+                </form>      
+              </div>
+              <div class="card-body">
+                <p class="text-center">Have an account? <a href="">Sign In</a></p>
+              </div>
+      
+            </div>
+      
+          </div>
           <div class="col-md-2"></div>
         </div>
       </div>

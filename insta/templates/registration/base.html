@@ -1,0 +1,31 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if title %}
+  <title>{{title}}</title>
+  {% endif %}
+
+  {% block styles %}
+  {% bootstrap_css %}
+   <!--Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Pacifico&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{% static 'css/insta.css' %}">
+{% endblock %}
+</head>
+<body>
+  {% block content %}
+  {% endblock %}
+
+  {% block script %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_script %}
+  {% endblock %}
+</body>
+</html>
