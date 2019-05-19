@@ -4,11 +4,31 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2"></div>
+      <div class="col-md-4">
+        {% if user.is_authenticated %}
+        <h2>{{user.username}}</h2>
+        <img src="profile.profile_pic.url" alt="Profile-Image">
+      </div>
+      <div class="col-md-4">
+
+      </div>
+      {% endif %}
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row image-posts">
+      <div class="col-md-2"></div>
       <div class="col-md-8">
-          <h2 class="text-center">Instagram</h2>
+        <input type="hidden" role="uploadcare-uploader"
+  data-public-key="demopublickey"
+  data-images-only
+/>
       </div>
       <div class="col-md-2"></div>
     </div>
   </div>
+  <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+  <script>
+    UPLOADCARE_PUBLIC_KEY = '4d0b24be184b5451955a';
+  </script>
   
 {% endblock %}

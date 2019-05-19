@@ -10,6 +10,8 @@ h2,h3{
   background-color: white;
   padding-bottom: 1.2%;
   padding-top: 1.2%;
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;
 }
 .mr-auto,.ml-auto{
   margin-left: 25%;
@@ -20,7 +22,8 @@ h2,h3{
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: transparent;  
+  background-color: transparent; 
+   
 }
 .footer-copyright{
   color: black;

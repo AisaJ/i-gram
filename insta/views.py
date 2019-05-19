@@ -5,3 +5,9 @@ from .models import Profile,Image
 # Create your views here.
 def home(request):
   return render(request,'home.html')
+
+def user_profile(request):
+  profile = Profile.objects.all()
+  post = Image.objects.all()
+
+  return render(request,'insta.html',{"profile":profile,"post":post})

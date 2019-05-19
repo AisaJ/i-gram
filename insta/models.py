@@ -1,12 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Profile(models.Model):
-  profile_pic = models.ImageField(upload_to='image/',default='me.png')
+  profile_pic = models.ImageField(upload_to='profile/',default='me.png')
   bio = models.TextField()
 
   def __str__(self):
     return self.bio
+
+  def profile_save(self):
+    self.save()
 
 class Image(models.Model):
   image = models.ImageField(upload_to='image/',default='arusha.jpeg')
@@ -18,3 +22,6 @@ class Image(models.Model):
 
   def __str__(self):
     return self.name
+
+  def image_save(self):
+    self.save()
