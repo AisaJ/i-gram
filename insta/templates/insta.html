@@ -3,16 +3,18 @@
 {% block content %}
   <div class="container-fluid">
     <div class="row">
+    <div class="row">
+        {% if user.is_authenticated %}
       <div class="col-md-2"></div>
       <div class="col-md-4">
-        {% if user.is_authenticated %}
+       
         
         <img src="profile.profile_pic.url" alt="Profile-Image">
       </div>
       <div class="col-md-4">
         <h2>{{user.username}}</h2><button><img src="https://img.icons8.com/material-rounded/24/000000/settings.png" width="30"></button>
       </div>
-      {% endif %}
+      
       <div class="col-md-2"></div>
     </div>
     <div class="row image-posts">
@@ -20,11 +22,13 @@
       <div class="col-md-8">
         <input type="hidden" role="uploadcare-uploader"
   data-public-key="demopublickey"
-  data-images-only
-/>
+  data-images-only/>
+        <button class="btn"><img src="https://img.icons8.com/material/24/000000/plus-2-math.png" width="35"></button>
       </div>
       <div class="col-md-2"></div>
     </div>
+    {% endif %}
+  </div>
   </div>
   <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
   <script>
