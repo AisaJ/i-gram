@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 from .models import Profile,Image
+from .forms import NewImageForm,NewProfileForm
 
 # Create your views here.
 def home(request):
@@ -11,3 +12,5 @@ def user_profile(request):
   post = Image.objects.all()
 
   return render(request,'insta.html',{"profile":profile,"post":post})
+
+
