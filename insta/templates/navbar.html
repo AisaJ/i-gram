@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar sticky-top navbar-expand-lg">
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <a class="navbar-brand mr-auto" href="{% url 'home' %}"><img src="https://img.icons8.com/material-outlined/24/000000/instagram-new.png" width="30"> | Instagram</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
         {% if user.is_authenticated%}
         
           <li class="nav-item">
-              <a class="nav-link waves-effect waves-light" href="/logout">Logout</a>
+              <a class="nav-link waves-effect waves-light" href="/">Logout</a>
           </li>
           <li class="nav-item">
               <a class="nav-link waves-effect waves-light" href="{%url 'userProfile'%}"><img src="https://img.icons8.com/material-rounded/24/000000/user.png" width="30"></a>

@@ -13,11 +13,23 @@
         {% endfor %}
       </div>
       <div class="col-md-4">
-        <h2>{{user.username}}</h2>&nbsp;&nbsp;<button><img src="https://img.icons8.com/material-rounded/24/000000/settings.png" width="30"></button><br>
-        <a href="{% url 'profile' %}"><button class="btn btn-light">Edit Profile</button></a>
-        {% for profile in profile_pic%}
-        <p class="bio">{{profile.bio}}</p>
-        {% endfor %}
+        <div>
+          <h2 class="name">{{user.username}}</h2><button class="btn btn-light p-settings"><img src="https://img.icons8.com/material-rounded/24/000000/settings.png" width="30"></button><br>
+        </div>
+        <div>
+          <ul>
+            
+            <span class="numbers"><li>0 Posts</li></span>
+            <span class="numbers"><li>0 Followers</li></span>
+            <span class="numbers"><li>0 Following</li></span>
+          </ul>
+        </div>
+        <div>        
+          <a href="{% url 'profile' %}"><button class="btn btn-light p-edit">Edit Profile</button></a>
+          {% for profile in profile_pic%}
+          <p class="bio">{{profile.bio}}</p>
+          {% endfor %}
+        </div>       
       </div>      
       <div class="col-md-2"></div>
       
@@ -29,11 +41,11 @@
         <div class="row">
             <a href="{%url 'newPost'%}"><button class="btn"><img src="https://img.icons8.com/material/24/000000/plus-2-math.png" width="35"></button></a>
         </div>
-        <div class="row">
+        <div class="row gallery-row">
           {% for image in posts %}
-          <div class="col-md-4">  
+          <div class="col-md-4 post-column">  
             <div class="post-container">
-              <img src="{{image.image.url}}" class="img-fluid image-post" height="500" alt="Image">            
+              <img src="{{image.image.url}}" class="img-fluid image-post" height="650" alt="Image">            
             </div>         
           </div>  
           {% endfor %}        
