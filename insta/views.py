@@ -15,6 +15,10 @@ def user_profile(request):
 
   return render(request,'insta.html',{"profile_pic":profile_pic,"posts":posts})
 
+def feeds(request):
+  posts = Image.objects.all()
+  return render(request,'feeds.html',{"posts":posts})
+
 @login_required(login_url='/accounts/login')
 def new_post(request):
   current_user = request.user
