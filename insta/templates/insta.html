@@ -2,33 +2,49 @@
 
 {% block content %}
   <div class="container-fluid">
-    <div class="row">
-    <div class="row">
-        {% if user.is_authenticated %}
+   
+      {% if user.is_authenticated %}  
+    <div class="row"> 
+   
       <div class="col-md-2"></div>
-      <div class="col-md-4">
-       
-        
-        <img src="profile.profile_pic.url" alt="Profile-Image">
+      <div class="col-md-4">      
+        {% for profile in profile_pic %}
+        <img src="{{profile.profile_pic}}" class="rounded-circle img-fluid" alt="Profile-Image" width="350">
+        {% endfor %}
       </div>
       <div class="col-md-4">
-        <h2>{{user.username}}</h2><button><img src="https://img.icons8.com/material-rounded/24/000000/settings.png" width="30"></button>
-      </div>
+        <h2>{{user.username}}</h2>&nbsp;&nbsp;<button><img src="https://img.icons8.com/material-rounded/24/000000/settings.png" width="30"></button><br>
+        <a href="{% url 'profile' %}"><button class="btn btn-light">Edit Profile</button></a>
+        {% for profile in profile_pic%}
+        <p class="bio">{{profile.bio}}</p>
+        {% endfor %}
+      </div>      
+      <div class="col-md-2"></div>
       
-      <div class="col-md-2"></div>
     </div>
     <div class="row image-posts">
+     
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <input type="hidden" role="uploadcare-uploader"
-  data-public-key="demopublickey"
-  data-images-only/>
-        <button class="btn"><img src="https://img.icons8.com/material/24/000000/plus-2-math.png" width="35"></button>
+        <div class="row">
+            <a href="{%url 'newPost'%}"><button class="btn"><img src="https://img.icons8.com/material/24/000000/plus-2-math.png" width="35"></button></a>
+        </div>
+        <div class="row">
+          {% for image in posts %}
+          <div class="col-md-4">  
+            <div class="post-container">
+              <img src="{{image.image.url}}" class="img-fluid image-post" height="500" alt="Image">            
+            </div>         
+          </div>  
+          {% endfor %}        
+        </div>       
+
       </div>
       <div class="col-md-2"></div>
+      
     </div>
     {% endif %}
-  </div>
+  
   </div>
   <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
   <script>

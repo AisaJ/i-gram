@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 class Profile(models.Model):
-  profile_pic = models.ImageField(upload_to='image/',blank=True)
+  profile_pic = models.ImageField(upload_to='profile/',default='wink.png')
   bio = models.TextField()
   user = models.ForeignKey(User,on_delete=models.CASCADE)
 
@@ -26,8 +26,8 @@ class Image(models.Model):
   image = models.ImageField(upload_to='image/',default='arusha.jpeg')
   name = models.CharField(max_length=40)
   caption = HTMLField()
-  profile = models.ForeignKey(Profile)
-  likes = models.IntegerField()
+  user = models.ForeignKey(User,on_delete=models.CASCADE)
+  likes = models.IntegerField(default=0)
   comments = HTMLField()
     
   def __str__(self):
@@ -36,5 +36,5 @@ class Image(models.Model):
   def image_save(self):
     self.save()
 
-  def image_delet(self):
+  def image_delete(self):
     self.delete()

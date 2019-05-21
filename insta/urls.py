@@ -8,7 +8,7 @@ urlpatterns=[
   url(r'^accounts/',include('registration.backends.simple.urls')),
   url(r'^user/',views.user_profile,name='userProfile'),
   url(r'^new/post$',views.new_post,name='newPost'),
-  url(r'^profile$'),views.profile,name='profile'),
+  url(r'^profile',views.profile,name='profile')
 ]
 if settings.DEBUG:
   urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
