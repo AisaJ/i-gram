@@ -13,6 +13,11 @@ class ImageTestClass(TestCase):
   def tearDown(self):
     Image.objects.all().delete()
 
+  def image_update(self):
+    self.holiday = Image(name='jinja')
+    Image.objects.name(name='arusha')
+    self.holiday.save()
+
 class ProfileTestClass(TestCase):
   def setUp(self):
     self.Jem = Profile(profile_pic='me.jpeg',bio='Always being awesome!')
