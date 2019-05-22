@@ -26,12 +26,16 @@ h2,h3{
   width: 100%;
   background-color: transparent;
   margin-top: 3%;
+  position: fixed;
 }
 .footer-copyright{
   color: black;
 }
 #home{
   background-color: white;
+}
+.profile-section{
+  margin-bottom: 3%;
 }
 span{
   color: gray;
@@ -44,8 +48,16 @@ span{
   width: 100%;
   font-weight: bold;
 }
+.post-action li{
+  text-decoration: none;
+  display: inline-block;
+  padding-right: 3%;
+}
 .download{
   margin-top: 3%;
+}
+.post-container{
+  height: 400;
 }
 .gallery-row {
   display: flex;
@@ -96,5 +108,9 @@ ul span li{
   text-decoration: none;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+.card-img-top{
+  margin-left: 0%;
+  margin-right: 0%;
 }
 

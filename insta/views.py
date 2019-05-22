@@ -9,15 +9,18 @@ def home(request):
   return render(request,'home.html')
 
 def user_profile(request):
-  profiles = Profile.objects.all()
-  posts = Image.objects.all()
-  profile_pic = profiles.reverse()[0:1]
+  current_user = request.user
+  profiles = Profile.objects.filter(user_id=current_user.id)[0:1]
+  posts = Image.objects.filter(user_id=current_user.id)
+  
 
-  return render(request,'insta.html',{"profile_pic":profile_pic,"posts":posts})
+  return render(request,'insta.html',{"profile_pic":profiles,"posts":posts})
 
 def feeds(request):
+  current_user = request.user
+  profiles = Profile.objects.filter(user_id=current_user.id)[0:1]
   posts = Image.objects.all()
-  return render(request,'feeds.html',{"posts":posts})
+  return render(request,'feeds.html',{"posts":posts,"profiles":profiles})
 
 @login_required(login_url='/accounts/login')
 def new_post(request):
@@ -44,8 +47,8 @@ def profile(request):
       profile.user = current_user
       profile_pic = form.cleaned_data['profile_pic']
       bio = form.cleaned_data['bio']
-      update = Profile.objects.filter(user=current_user).update(bio=bio,profile_pic=profile_pic)
-      profile.save(update)
+      Profile.objects.filter(user=current_user).update(bio=bio,profile_pic=profile_pic)
+      profile.save()
     return redirect('userProfile')
 
   else:

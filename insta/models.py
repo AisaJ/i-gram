@@ -16,6 +16,8 @@ class Profile(models.Model):
 
   def profile_delete(self):
     self.delete()
+  class Meta:
+    ordering=['-bio']
 
   @classmethod
   def filter_by_username(cls,user_id):
