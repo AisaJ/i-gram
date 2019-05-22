@@ -2,7 +2,7 @@
 #### This is a social media instagram-like clone application. Users are signed up to use the application and can create and edit their profile, add image posts to their application page. See feeds from other users while on feeds page. May 22, 2019.
 #### By Aisa Jemila
 ## Description
-Deployed on: https://i-gram.herokuapp.com
+Deployed to: https://i-gram.herokuapp.com
 The application enables users to make posts of images and have a gallery to showcase to other developers. Users must be signed in to post images, like or comment to a post. On home page they can view feeds from other users'. Users can navigate through their profile page and back to the feeds page. The application is a social platform for sharing and viewing interesting images and related stories.
 ## Setup/Installation Requirements
 * Clone the project
