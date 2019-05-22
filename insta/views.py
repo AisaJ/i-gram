@@ -17,8 +17,8 @@ def user_profile(request):
   return render(request,'insta.html',{"profile_pic":profiles,"posts":posts})
 
 def feeds(request):
-  current_user = request.user
-  profiles = Profile.objects.filter(user_id=current_user.id)[0:1]
+  
+  profiles = Profile.objects.all()
   posts = Image.objects.all()
   return render(request,'feeds.html',{"posts":posts,"profiles":profiles})
 
