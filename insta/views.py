@@ -20,8 +20,20 @@ def feeds(request):
   posts = Image.objects.all()
   return render(request,'feeds.html',{"posts":posts,"profiles":profiles})
 
+@login_required(login_url='/accounts/login')
 def comments(request):
-  return render(request,'feeds.html')
+  current_user=request.user
+  if request.method == 'POST':
+    form = NewCommentForm(request.POST)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.user = current_user
+      post.save()
+    return redirect('feed')
+
+  else:
+    form = NewCommentForm()
+  return render(request,'comments.html',{"form":form})
 
 
 @login_required(login_url='/accounts/login')

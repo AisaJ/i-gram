@@ -15,14 +15,14 @@
             <div class="card-body">  
               <ul class="post-action">
                 <li><a><img src="https://img.icons8.com/material-outlined/24/000000/hearts.png" width="30" onclick="addLike()" id="heart"></a></li>
-                <li><a><img src="https://img.icons8.com/material-outlined/24/000000/topic.png" width="30"></a></li>
+                <li><a href="{% url 'comment'%}"><img src="https://img.icons8.com/material-outlined/24/000000/topic.png" width="30"></a></li>
               </ul>
               <strong><p class="like">0 Likes</p></strong>
               <p class="card-text">{{post.name|safe}}</p>       
               <p class="card-text">{{post.caption|safe}}</p>
                          
               </div> 
-              <div class="card-footer">
+              <div class="card-footer comments-sec">
                 <h4><em>Comments</em></h4>
               </div>             
             </div>
