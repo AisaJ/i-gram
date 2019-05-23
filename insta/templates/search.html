@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container-fluid">
+    <div class="row search-page">
+      {% if founds %}
+        <h2> Found {{founds|length}} results of searched {{message}}. </h2>
+      {% else %}
+        <h2> Found none images for that term {{message}}. </h2>
+      {% endif %}
+    </div>
+    <div class="row">
+      {% if founds %}
+        {% for user in founds %}
+        <div class="col-sm-6 col-md-3">
+          <p>{{user.profile_pic.url}}</p>
+          <p>{{user.bio}}</p>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -23,11 +23,11 @@ def feeds(request):
 
 def search(request):
     if 'user' in request.GET and request.GET['user']:
-        term=request.GET.get("user")
-        found=Image.search_users(term)
-        message=f'{term}'
+        s_term=request.GET.get("user")
+        found=Image.search_users(s_term)
+        message=f'{s_term}'
 
-        return render(request,'search.html',{'message':message,'founds':found,"term":term})
+        return render(request,'search.html',{'message':message,'founds':found,"term":s_term})
     else:
         message="You did not search any user please input a user name"
         return render(request,"search.html",{"message":message})

@@ -11,6 +11,7 @@ urlpatterns=[
   url(r'^profile/',views.profile,name='profile'),
   url(r'^feed/',views.feeds,name='feed'),
   url(r'^comment/',views.comments,name='comment')
+  url(r'^search/',views.search,name='search')
 ]
 if settings.DEBUG:
   urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
