@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
-from .models import Profile,Image
-from .forms import NewImageForm,NewProfileForm
+from .models import Profile,Image,Comments
+from .forms import NewImageForm,NewProfileForm,NewCommentForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -16,6 +16,7 @@ def user_profile(request):
   return render(request,'insta.html',{"profile_pic":profiles,"posts":posts})
 
 def feeds(request):  
+  
   profiles = Profile.objects.all()
   posts = Image.objects.all()
   return render(request,'feeds.html',{"posts":posts,"profiles":profiles})

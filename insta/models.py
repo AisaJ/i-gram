@@ -42,7 +42,7 @@ class Image(models.Model):
 class Comments(models.Model):
   comment = HTMLField()
   user = models.ForeignKey(User,on_delete=models.CASCADE)
-  image = models.ForeignKey(Image,on_delete=models.CASCADE)
+  image = models.ForeignKey(Image,on_delete=models.CASCADE,null=True)
 
   def __str__(self):
     return self.comment
