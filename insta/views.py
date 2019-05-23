@@ -11,16 +11,18 @@ def home(request):
 def user_profile(request):
   current_user = request.user
   profiles = Profile.objects.filter(user_id=current_user.id)[0:1]
-  posts = Image.objects.filter(user_id=current_user.id)
-  
+  posts = Image.objects.filter(user_id=current_user.id)  
 
   return render(request,'insta.html',{"profile_pic":profiles,"posts":posts})
 
-def feeds(request):
-  
+def feeds(request):  
   profiles = Profile.objects.all()
   posts = Image.objects.all()
   return render(request,'feeds.html',{"posts":posts,"profiles":profiles})
+
+def comments(request):
+  return render(request,'feeds.html')
+
 
 @login_required(login_url='/accounts/login')
 def new_post(request):
