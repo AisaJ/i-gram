@@ -16,10 +16,21 @@ def user_profile(request):
   return render(request,'insta.html',{"profile_pic":profiles,"posts":posts})
 
 def feeds(request):  
-  
+  comments= Comments.objects.all()
   profiles = Profile.objects.all()
   posts = Image.objects.all()
-  return render(request,'feeds.html',{"posts":posts,"profiles":profiles})
+  return render(request,'feeds.html',{"posts":posts,"profiles":profiles,"comments":comments})
+
+def search(request):
+    if 'user' in request.GET and request.GET['user']:
+        term=request.GET.get("user")
+        found=Image.search_users(term)
+        message=f'{term}'
+
+        return render(request,'search.html',{'message':message,'founds':found,"term":term})
+    else:
+        message="You did not search any user please input a user name"
+        return render(request,"search.html",{"message":message})
 
 @login_required(login_url='/accounts/login')
 def comments(request):

@@ -24,6 +24,10 @@
               </div> 
               <div class="card-footer comments-sec">
                 <h4><em>Comments</em></h4>
+                {% for comments in comments %}
+                {% if image.id ==%}
+                <p>{{comments.comment|safe}}</p>
+                {% endfor %}
               </div>             
             </div>
           </div>
