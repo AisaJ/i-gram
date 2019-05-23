@@ -10,3 +10,8 @@ class NewProfileForm(forms.ModelForm):
   class Meta:
     model=Profile
     exclude = ['user']
+
+class NewCommentForm(forms.ModelForm):
+  class Meta:
+    model=Comments
+    exclude = ['user','image']
