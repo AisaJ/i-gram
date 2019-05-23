@@ -30,7 +30,6 @@ class Image(models.Model):
   caption = HTMLField()
   user = models.ForeignKey(User,on_delete=models.CASCADE)
   likes = models.IntegerField(default=0)
-  comments = HTMLField()
     
   def __str__(self):
     return self.name
@@ -38,5 +37,15 @@ class Image(models.Model):
   def image_save(self):
     self.save()
 
-  def image_delete(self):
     self.delete()
+
+class Comments(models.Model):
+  comment = models.TextField(max-max_length=60)
+  user = models.ForeignKey(User,on_delete=models.CASCADE)
+  image = models.ForeignKey(Image,on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.comment
+
+  def comment_save(self):
+    self.save()
