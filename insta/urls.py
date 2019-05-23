@@ -9,7 +9,8 @@ urlpatterns=[
   url(r'^user/',views.user_profile,name='userProfile'),
   url(r'^new/post$',views.new_post,name='newPost'),
   url(r'^profile/',views.profile,name='profile'),
-  url(r'^feed/',views.feeds,name='feed')
+  url(r'^feed/',views.feeds,name='feed'),
+  url(r'^comment/',views.comments,name='comment')
 ]
 if settings.DEBUG:
   urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
