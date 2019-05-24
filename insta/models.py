@@ -36,8 +36,14 @@ class Image(models.Model):
 
   def image_save(self):
     self.save()
-
+  
+  def image_delete(self):
     self.delete()
+
+  @classmethod
+  def search_user(cls,s_term):
+    result = cls.objects.filter(user__username__icontains=s_term)
+    return result
 
 class Comments(models.Model):
   comment = HTMLField()
