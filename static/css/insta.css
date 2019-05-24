@@ -70,8 +70,8 @@ span{
 
 /* Create four equal columns that sits next to each other */
 .post-column {
-  flex: 50%;
-  max-width: 50%;
+  flex: 25%;
+  max-width: 25%;
   padding: 0 4px;
 }
 

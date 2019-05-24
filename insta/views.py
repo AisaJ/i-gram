@@ -19,7 +19,7 @@ def feeds(request):
   comments= Comments.objects.all()
   profiles = Profile.objects.all()
   posts = Image.objects.all()
-  
+
   return render(request,'feeds.html',{"posts":posts,"profiles":profiles,"comments":comments})
 
 def search(request):

@@ -24,10 +24,14 @@
               </div> 
               <div class="card-footer comments-sec">
                 <h4><em>Comments</em></h4>
-                {% for comments in comments %}
+                {%if comments%}
+                {% for comment in comments %}
                 
-                <p>{{comments.comment|safe}}</p>
+                <p>{{comment.comment|safe}}</p>
                 {% endfor %}
+                {% else %}
+                <p class="text-center animated flash slow">Make the first comment.</p>
+                {% endif %}
               </div>             
             </div>
           </div>
